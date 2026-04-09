@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #111 0%, #000 100%);
+  color: #f5f5f5;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* App container spacing */
+.app-container {
+  max-width: 500px;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+/* Premium Glass Card */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 15px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-3px);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #d4af37, #f6e27a);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Inputs */
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  width: 70%;
+  text-align: center;
+}
+
+/* Intro screen */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f5f5f5;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Glow text */
+.glow {
+  color: #f6e27a;
+  text-shadow: 0 0 10px rgba(246, 226, 122, 0.7);
+}
