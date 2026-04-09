@@ -3,7 +3,7 @@ import Timeline from "./components/Timeline";
 import VoiceNote from "./components/VoiceNote";
 import Surprise from "./components/Surprise";
 import LoveLetter from "./components/LoveLetter";
-import Countdown from "./components/Countdown";
+import Countdown from "./components/CountDown";
 import VideoSection from "./components/VideoSection";
 import config from "./config";
 
