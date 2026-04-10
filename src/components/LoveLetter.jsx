@@ -60,9 +60,10 @@ Happy Birthday, my love ❤️
   return (
     <div className="glass">
       <h2 className="glow">For You {config.herName}❤️</h2>
-      <p style={{ whiteSpace: "pre-line", lineHeight: "1.8" }}>
-        {text}
+      <p style={{ whiteSpace: "pre-wrap", lineHeight: "1.8", wordBreak: "keep-all", overflowWrap: "break-word" }}>
+       {text}
       </p>
+
     </div>
   );
 }

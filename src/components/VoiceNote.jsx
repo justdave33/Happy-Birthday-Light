@@ -3,7 +3,7 @@ export default function VoiceNote() {
     <div className="glass">
       <h2>Listen to Me 💬</h2>
       <audio controls>
-        <source src="/voice.mp3" type="audio/mpeg" />
+        <source src="/voice/birthday.m4a" type="audio/mpeg" />
       </audio>
     </div>
   );
