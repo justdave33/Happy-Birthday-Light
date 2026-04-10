@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import config from "../config";
 
 export default function LoveLetter() {
@@ -18,11 +18,11 @@ I know we've both changed. Life has shaped us differently. But deep down, I stil
 
 You are not just my wife… you are my partner, my safe place, my biggest "what if" that I don't want to lose.
 
-I'm not writing this to pressure you… I'm writing this because I want you to know how I truly feel with no ego, no pride, just honesty.
+I'm not writing this to pressure you… I'm writing this because I want you to know how I truly feel — with no ego, no pride, just honesty.
 
 We didn't leave each other when we faced the hardest challenges in life, why should we now leave and give up when it is almost close before we are together again? We have less than 5 months to be together again. I don't want us to give up after 7 to 8 years.
 
-We didn't give up since 4 years we have been apart, why should we do that now.
+We didn't give up for the 4 years we have been apart, why should we do that now.
 
 Let us not lose hope, for I know that this phase will surely pass, and we will look back and see how far we have made it.
 
@@ -43,23 +43,29 @@ Happy Birthday, my love ❤️
 — From the man who still carries your heart`;
 
   const [displayedText, setDisplayedText] = useState("");
-  const speed = 30;
+  const indexRef = useRef(0);
+  const intervalRef = useRef(null);
+  const speed = 35;
 
   useEffect(() => {
-    let i = 0;
-    setDisplayedText(""); // reset on mount
+    indexRef.current = 0;
+    setDisplayedText("");
 
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
+      const i = indexRef.current;
+
       if (i < fullText.length) {
-        setDisplayedText((prev) => prev + fullText.charAt(i));
-        i++;
+        // Use slice from the original string — never accumulate character by character
+        // This guarantees the displayed text is always a perfect prefix of fullText
+        setDisplayedText(fullText.slice(0, i + 1));
+        indexRef.current = i + 1;
       } else {
-        clearInterval(interval);
+        clearInterval(intervalRef.current);
       }
     }, speed);
 
-    return () => clearInterval(interval);
-  }, []); // empty deps — runs once on mount
+    return () => clearInterval(intervalRef.current);
+  }, []);
 
   return (
     <div className="glass">
@@ -88,7 +94,7 @@ Happy Birthday, my love ❤️
       <style>{`
         @keyframes blink {
           0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
+          50%       { opacity: 0; }
         }
       `}</style>
     </div>
